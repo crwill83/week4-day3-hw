@@ -63,9 +63,18 @@ group by rating;
 
 
 -- 7.Show all customers who have made a single payment above $6.99 (Use Subqueries)
--- I need help with this stuff, spent 4 hours just getting what I have done and no one is available for me in the evenings when I do my homework. 
--- My brain just doesn't want to get this stuff tonight I guess and it's really frustrating.
-
+select * from payment ;
+--
+select * from customer;
+--
+select first_name , last_name , customer_id
+from customer 
+where customer_id in 
+	(
+		select customer_id 
+		from payment 
+		where amount > 6.99
+	);
 
 --(8.) How many free rentals did our stores give away?
 select amount, count(amount)
